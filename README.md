@@ -24,4 +24,4 @@ npm start
 ```
 
 ## Jak to wygląda?
-![Screenshot](https://imgur.com/a/aKLWU5n)
+![Screenshot](https://imgur.com/gXJ4OpA)
