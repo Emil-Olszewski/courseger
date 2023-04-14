@@ -23,5 +23,8 @@ Po tym kroku aplikacja kliencka jest gotowa do uruchomienia komendą:
 npm start
 ```
 
+**Ważne!**
+Upewnij się, że adres umieszczony w `environment.ts` odpowiada adresowi Api.
+
 ## Jak to wygląda?
 ![Screenshot](https://i.imgur.com/gXJ4OpA.png)
