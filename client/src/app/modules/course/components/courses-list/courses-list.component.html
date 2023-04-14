@@ -1,0 +1,50 @@
+<div class="card">
+  <div class="card-body text-center">
+    <div class="container-fluid">
+      <ng-container *ngIf="courses$ | async as courses; else noCourses">
+        <div class="row">
+        <span class="text-title-1">
+          Lista kursów
+          ({{courses.length}})
+        </span>
+        </div>
+        <div class="row">
+          <div class="sub-card mt-3" *ngFor="let course of courses">
+            <div class="row px-1 py-3">
+              <div class="col text-start my-auto">
+                <span class="text-headline">{{course.name}}</span>
+                <span class="text-secondary">
+                  <ng-container *ngIf="course.numberOfLessonSubjects > 0; else noSubjects">
+                    &nbsp; tematy: {{course.numberOfLessonSubjects}}
+                  </ng-container>
+                  <ng-template #noSubjects>
+                    &nbsp; brak dodanych tematów
+                  </ng-template>
+                </span>
+              </div>
+              <div class="col text-end">
+                <button type="button" class="btn btn-primary" (click)="showCourseDetails$.emit(course.id)">Szczegóły</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-template #noCourses>
+        <div class="row">
+        <span class="text-title-1">
+          Lista kursów
+        </span>
+        </div>
+        <div class="row mt-3 justify-content-center">
+          Nie ma tu jeszcze żadnego kursu. Może pora coś dodać?
+        </div>
+      </ng-template>
+      <app-error-message [error$]="error$"></app-error-message>
+      <div class="row mt-3">
+        <div class="col">
+          <button type="button" class="btn btn-primary" (click)="createNewCourse$.emit()">Dodaj kurs</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

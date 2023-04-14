@@ -1,0 +1,6 @@
+<app-courses-list
+  [courses$]="courses$"
+  [error$]="error$"
+  (createNewCourse$)="createNewCourse()"
+  (showCourseDetails$)="showCourseDetails($event)">
+</app-courses-list>

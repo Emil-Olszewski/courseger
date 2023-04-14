@@ -1,0 +1,30 @@
+<form [formGroup]="form">
+  <div class="row text-start align-content-center ">
+    <div class="col-2 py-2">
+      <label for="number" class="form-label">Numer</label>
+      <input class="form-control"
+             id="number"
+             type="number"
+             placeholder="Numer"
+             formControlName="number"
+             formControlValidation="form.controls['number']">
+    </div>
+    <div class="col-9 bg-light py-2">
+      <label for="name" class="form-label">Nazwa</label>
+      <input class="form-control"
+             id="name"
+             type="text"
+             placeholder="Nazwa"
+             formControlName="name"
+             formControlValidation="form.controls['name']">
+      <app-form-control-validation-error [control]="form.controls['name']">
+      </app-form-control-validation-error>
+      <app-form-control-validation-error [control]="form.controls['number']">
+      </app-form-control-validation-error>
+    </div>
+    <div class="col-1 my-auto py-2">
+      <button type="button" class="btn btn-sm btn-outline-danger" (click)="removeLessonSubject()">Usuń</button>
+    </div>
+  </div>
+
+</form>

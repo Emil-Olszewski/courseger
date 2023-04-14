@@ -1,0 +1,39 @@
+@import 'variables.scss';
+@import 'text.scss';
+
+/* Importing Bootstrap SCSS file. */
+@import "./node_modules/bootstrap/scss/bootstrap";
+
+/* Importing Datepicker SCSS file. */
+@import "./node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+
+body, html {
+  @extend .text-body;
+  margin: 0;
+  padding: 0;
+  color: $text-dark;
+  background-color: $background-light;
+}
+
+.text-light {
+  color: $text-light;
+}
+
+.text-dark {
+  color: $text-dark;
+}
+
+.shadow {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card {
+  @extend .shadow;
+  border: none;
+  border-radius: 15px;
+}
+
+.sub-card {
+  border: 1px solid $primary;
+  border-radius: 15px;
+}

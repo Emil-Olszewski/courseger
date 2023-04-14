@@ -1,0 +1,51 @@
+<div class="card p-3 text-center">
+  <div class="card-body">
+    <span class="text-display" *ngIf="course$ | async as course">
+      <ng-container *ngIf="course.id != undefined; else newCourse">Edycja kursu</ng-container>
+      <ng-template #newCourse>Tworzenie kursu</ng-template>
+    </span>
+    <form [formGroup]="form">
+      <div class="mt-3">
+        <div class="text-headline">
+          Tytuł
+        </div>
+        <div class="mt-2">
+            <input class="form-control"
+               type="text"
+               placeholder="Tytuł"
+               formControlName="name"
+               formControlValidation="form.controls['name']">
+          <app-form-control-validation-error [control]="form.controls['name']">
+          </app-form-control-validation-error>
+        </div>
+      </div>
+
+      <div class="mt-5">
+        <div class="text-headline">
+          Opis
+        </div>
+       <div class="mt-2">
+          <textarea class="form-control"
+            type="text"
+            placeholder="Opis"
+            formControlName="description"
+            formControlValidation="form.controls['description']">
+          </textarea>
+         <app-form-control-validation-error [control]="form.controls['description']">
+         </app-form-control-validation-error>
+       </div>
+      </div>
+      <div class="mt-5">
+        <p class="text-headline">Tematy</p>
+        <app-lesson-subjects-edit [course$]="course$"></app-lesson-subjects-edit>
+      </div>
+      <app-error-message [error$]="error$"></app-error-message>
+      <div class="row mt-5 justify-content-center">
+        <div class="col-auto">
+          <button type="button" class="btn btn-outline-primary" (click)="rejectChanges$.emit()">Odrzuć zmiany</button> &nbsp;
+          <button type="button" class="btn btn-primary" (click)="handleSubmit()">Zapisz</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

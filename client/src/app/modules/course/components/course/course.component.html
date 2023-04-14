@@ -1,0 +1,60 @@
+<div class="card p-3 text-center">
+  <div class="card-body">
+    <ng-container *ngIf="course$ | async as course; else noCourse">
+    <div class="text-title-1">
+      {{course.name}}
+    </div>
+
+    <div class="mt-3">
+      <ng-container *ngIf="course.description.length > 0; else noDescription">
+        {{course.description}}
+      </ng-container>
+      <ng-template #noDescription>
+        Nie dodano jeszcze opisu
+      </ng-template>
+    </div>
+
+    <div class="mt-5">
+      <p class="text-headline">Tematy</p>
+      <app-lesson-subject-list [course$]="course$"></app-lesson-subject-list>
+    </div>
+      <div class="mt-3">
+        <app-error-message [error$]="error$"></app-error-message>
+      </div>
+    <div class="row mt-5 justify-content-between">
+      <div class="col-auto text-start">
+        <button type="button" class="btn btn-danger" (click)="openModal(template)">Usuń</button>
+      </div>
+      <div class="col-auto text-end">
+        <button type="button" class="btn btn-outline-primary" (click)="goBackToCoursesList$.emit()">Wróć do listy</button> &nbsp;
+        <button type="button" class="btn btn-primary" (click)="editCourse$.emit()">Edytuj</button>
+      </div>
+    </div>
+      </ng-container>
+    <ng-template #noCourse>
+      <app-error-message [error$]="error$"></app-error-message>
+      <div class="col-auto text-center mt-3">
+        <button type="button" class="btn btn-outline-primary" (click)="goBackToCoursesList$.emit()">Wróć do listy</button> &nbsp;
+      </div>
+    </ng-template>
+    </div>
+</div>
+
+<ng-template #template>
+  <div class="modal-header">
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-center">
+    Czy na pewno chcesz usunąć kurs?
+    <div class="row mt-3 justify-content-center">
+      <div class="col">
+        <button type="button" class="btn btn-primary w-100" (click)="deleteCourse()">Tak</button>
+      </div>
+      <div class="col">
+        <button type="button" class="btn btn-outline-primary w-100" (click)="closeModal()">Nie</button>
+      </div>
+    </div>
+  </div>
+</ng-template>

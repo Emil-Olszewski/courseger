@@ -1,0 +1,22 @@
+<ng-container *ngIf="course$ | async as course">
+  <ng-container *ngIf="course.lessonSubjects.length > 0; else noSubjects">
+    <table class="table align-middle">
+      <thead>
+      <tr>
+        <th scope="col">Numer</th>
+        <th scope="col">Nazwa</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let lessonSubject of course.lessonSubjects">
+          <th scope="row">{{lessonSubject.number}}</th>
+          <td>{{lessonSubject.name}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+  <ng-template #noSubjects>
+    Nie dodano jeszcze żadnych tematów lekcji
+  </ng-template>
+</ng-container>
+

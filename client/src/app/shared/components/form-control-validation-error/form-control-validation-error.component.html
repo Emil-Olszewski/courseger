@@ -1,0 +1,15 @@
+<div class="mt-2">
+    <span *ngIf="control.touched && control.errors?.['required']" class="text-danger">
+        Wartość jest wymagana
+    </span>
+    <span *ngIf="control.touched && control.errors?.['maxlength']" class="text-danger">
+       Wprowadzono {{control.errors?.['maxlength'].actualLength}} znaków
+        z {{control.errors?.['maxlength'].requiredLength}} dozwolonych
+    </span>
+  <span *ngIf="control.touched && control.errors?.['max']" class="text-danger">
+        Maksymalna wartość to {{control.errors?.['max'].max}}
+    </span>
+  <span *ngIf="control.touched && control.errors?.['min']" class="text-danger">
+        Minimalna wartość to {{control.errors?.['min'].min}}
+    </span>
+</div>

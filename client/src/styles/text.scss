@@ -1,0 +1,83 @@
+﻿@import 'variables.scss';
+
+@font-face {
+  font-family: $poppins-bold;
+  src: url('../assets/fonts/Poppins-Bold.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: $poppins-medium;
+  src: url('../assets/fonts/Poppins-Medium.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: $poppins-regular;
+  src: url('../assets/fonts/Poppins-Regular.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: $poppins-light;
+  src: url('../assets/fonts/Poppins-Light.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: $poppins-thin;
+  src: url('../assets/fonts/Poppins-Thin.ttf') format("truetype");
+}
+
+.text-display {
+  font-family: $poppins-light;
+  letter-spacing: -4px;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 56px;
+  line-height: 70px;
+}
+
+.text-header {
+  font-family: $poppins-bold;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 45px;
+  line-height: 56px;
+}
+
+.text-title-1 {
+  font-family: $poppins-medium;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 45px;
+}
+
+.text-title-2 {
+  font-family: $poppins-medium;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 38px;
+}
+
+.text-headline {
+  font-family: $poppins-regular;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.text-body {
+  font-family: $poppins-thin;
+  font-style: normal;
+  font-weight: 100;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.text-caption {
+  font-family: $poppins-light;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 19px;
+}
